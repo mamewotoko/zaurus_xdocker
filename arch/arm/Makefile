@@ -383,7 +383,8 @@ archdep: scripts/mkdep symlinks
 	@$(MAKEBOOT) dep
 
 # Ensure this is ld "2.9.5" or later
-NEW_LINKER	:= $(shell $(LD) --gc-sections --version >/dev/null 2>&1; echo $$?)
+#NEW_LINKER	:= $(shell $(LD) --gc-sections --version >/dev/null 2>&1; echo $$?)
+NEW_LINKER	:= 0
 
 ifneq ($(NEW_LINKER),0)
 checkbin: FORCE
