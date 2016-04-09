@@ -13,11 +13,15 @@ RUN alien gcc-cross-sa1100-2.95.2-0.i386.rpm
 RUN alien glibc-arm-2.2.2-0.i386.rpm
 RUN alien linux-headers-arm-sa1100-2.4.6-3.i386.rpm
 RUN apt-get install strace -y
-ENV PATH=/usr/arm-linux-gnueabi/bin/:/opt/Embedix/tools/bin:${PATH}
+ENV PATH=/opt/Embedix/tools/bin:${PATH}
 RUN dpkg -i *.deb
 WORKDIR linux
+ADD arch_arm_makefile.patch .
+RUN apt-get install patch -y
+RUN patch -p1 < arch_arm_makefile.patch
 RUN make borzoi-j_config
 RUN yes "" | make oldconfig
 RUN make dep
 RUN make clean
-#RUN make zImage
+ENV PATH=/usr/arm-linux-gnueabi/bin/:${PATH}
+RUN make zImage

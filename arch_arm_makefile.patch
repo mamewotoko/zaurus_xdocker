@@ -12,22 +12,3 @@ index b0c3d66..43f711f 100644
  
  ifneq ($(NEW_LINKER),0)
  checkbin: FORCE
-diff --git a/arch_arm_makefile.patch b/arch_arm_makefile.patch
-index d554ea6..e69de29 100644
---- a/arch_arm_makefile.patch
-+++ b/arch_arm_makefile.patch
-@@ -1,14 +0,0 @@
--diff --git a/tmp/Makefile b/tmp/Makefile
--index b0c3d66..43f711f 100644
----- a/tmp/Makefile
--+++ b/tmp/Makefile
--@@ -383,7 +383,8 @@ archdep: scripts/mkdep symlinks
-- 	@$(MAKEBOOT) dep
-- 
-- # Ensure this is ld "2.9.5" or later
---NEW_LINKER	:= $(shell $(LD) --gc-sections --version >/dev/null 2>&1; echo $$?)
--+#NEW_LINKER	:= $(shell $(LD) --gc-sections --version >/dev/null 2>&1; echo $$?)
--+NEW_LINKER	:= 0
-- 
-- ifneq ($(NEW_LINKER),0)
-- checkbin: FORCE
