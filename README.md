@@ -26,6 +26,8 @@ An executable file named "hello_arm_built_by_docker" will be created
 TODO
 ----
 * docker HTTP proxy setting to build image?
+* run on qemu
+* use make
 * build CUI app
 * build GUI app
 * compile and replace linux kernel 
