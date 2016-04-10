@@ -6,14 +6,14 @@ Target Zaurus
 * Zaurus SL-C3100
 
 Build container image
------------------
+---------------------
 ```bash
 sh build.sh
 ```
 Docker container image named "xbuild" will be created.
 
 Compile and run hello app
---------------------------------------
+-------------------------
 1.
 ```
 cd hello_app
