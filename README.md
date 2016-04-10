@@ -1,4 +1,4 @@
-Zaurus cross-compilation in a Docker container
+Zaurus cross-compilation in a Docker container [![Build Status](https://travis-ci.org/mamewotoko/zaurus_xdocker.svg?branch=master)](https://travis-ci.org/mamewotoko/zaurus_xdocker)
 ==============================================
 
 Target Zaurus
