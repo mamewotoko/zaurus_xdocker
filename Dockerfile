@@ -28,3 +28,7 @@ RUN make borzoi-j_config
 RUN yes "" | make oldconfig
 RUN make dep; make clean
 RUN make zImage
+
+VOLUME ["/build"]
+RUN mkdir /build
+WORKDIR /build
