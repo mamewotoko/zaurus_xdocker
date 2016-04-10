@@ -20,11 +20,10 @@ RUN dpkg -i *.deb
 
 ENV PATH=/opt/Embedix/tools/bin:${PATH}
 
-RUN mkdir /src
-RUN bzcat linux-c3100-20050602-rom1_01.tar.bz2 | tar x
+RUN bzcat /root/linux-c3100-20050602-rom1_01.tar.bz2 | tar x
 
 # build kernel (optional)
-WORKDIR /src/linux
+WORKDIR /root/linux
 RUN make borzoi-j_config
 RUN yes "" | make oldconfig
 RUN make dep; make clean
