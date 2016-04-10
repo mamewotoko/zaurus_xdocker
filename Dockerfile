@@ -5,12 +5,12 @@ MAINTAINER Takashi Masuyama <mamewotoko@gmail.com>
 RUN apt-get update -q && apt-get install alien wget ncurses-dev binutils-arm-linux-gnueabi -y --fix-missing
 
 WORKDIR /
-RUN wget http://support.ezaurus.com/developer/tool/tools/gcc-cross-sa1100-2.95.2-0.i386.rpm
-RUN wget http://support.ezaurus.com/developer/tool/tools/glibc-arm-2.2.2-0.i386.rpm
-RUN wget http://support.ezaurus.com/developer/tool/tools/linux-headers-arm-sa1100-2.4.6-3.i386.rpm
-RUN wget http://support.ezaurus.com/developer/tool/tools/binutils-cross-arm-2.11.2-0.i386.rpm
+RUN wget -nv http://support.ezaurus.com/developer/tool/tools/gcc-cross-sa1100-2.95.2-0.i386.rpm
+RUN wget -nv http://support.ezaurus.com/developer/tool/tools/glibc-arm-2.2.2-0.i386.rpm
+RUN wget -nv http://support.ezaurus.com/developer/tool/tools/linux-headers-arm-sa1100-2.4.6-3.i386.rpm
+RUN wget -nv http://support.ezaurus.com/developer/tool/tools/binutils-cross-arm-2.11.2-0.i386.rpm
 
-RUN wget http://support.ezaurus.com/developer/source/c3100/20050602/linux-c3100-20050602-rom1_01.tar.bz2
+RUN wget -nv http://support.ezaurus.com/developer/source/c3100/20050602/linux-c3100-20050602-rom1_01.tar.bz2
 RUN bzcat linux-c3100-20050602-rom1_01.tar.bz2 | tar x
 RUN alien gcc-cross-sa1100-2.95.2-0.i386.rpm
 RUN alien glibc-arm-2.2.2-0.i386.rpm
@@ -29,6 +29,7 @@ RUN yes "" | make oldconfig
 RUN make dep; make clean
 RUN make zImage
 
-VOLUME ["/build"]
 RUN mkdir /build
 WORKDIR /build
+VOLUME ["/build"]
+
