@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - sh build.sh
+  - cd hello_app; sh build.sh: file hello_arm_built_by_docker
