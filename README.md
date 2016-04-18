@@ -29,6 +29,8 @@ TODO
 * run on qemu
 * use make
 * build CUI app
+  * cannot compile lmbench
+    * freeze when compiling mhz.c
 * build GUI app
 * compile and replace linux kernel 
 
