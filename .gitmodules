@@ -1,3 +1,0 @@
-[submodule "lmbench"]
-	path = lmbench
-	url = git@github.com:mamewotoko/lmbench.git
