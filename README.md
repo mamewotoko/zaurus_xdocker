@@ -7,32 +7,43 @@ Target Zaurus
 
 Build container image
 ---------------------
-```bash
+```
 sh build.sh
 ```
 Docker container image named "xbuild" will be created.
 
 Compile and run hello app
 -------------------------
-1.
-```
-cd hello_app
-sh build.sh
-```
+1. run build script
+
+    ```
+    cd hello_app
+    sh build.sh
+    ```
 An executable file named "hello_arm_built_by_docker" will be created
 2. copy hello_arm_built_by_docker file to SD card, then insert it to Zaurus C-3100
 3. run hello_arm_built_by_docker using terminal software on Zaurus . "hello world" will be printed on terminal.
 
 TODO
 ----
-* docker HTTP proxy setting to build image?
-* run on qemu
-* use make
-* build CUI app
-  * cannot compile lmbench
-    * freeze when compiling mhz.c
-* build GUI app
-* compile and replace linux kernel 
+* run arm app on qemu
+  * qemu config
+* use make (add sample project using makefile)
+* build more app
+  * use libraries installed in zaurus to link
+  * CUI app
+    * openssh-server
+    * cannot compile lmbench
+      * freeze when compiling mhz.c
+  * GUI app
+    * curses app
+* add functions like rpxc
+
+Challenge?
+----------
+* build web browser (supporting html5)
+* compile and replace linux kernel
+  * replace initrd?
 
 Reference
 ---------

@@ -16,4 +16,4 @@ chroot . ./qemu-arm-static hello_arm_built_by_docker
 
 TODO
 ----
-* use bind mount?
+* use bind mount instead of copying lib and qemu?
