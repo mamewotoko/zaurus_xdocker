@@ -5,30 +5,69 @@ Target Zaurus
 -------------
 * Zaurus SL-C3100
 
-Build container image
+Build & prepare
 ---------------------
-```
-sh build.sh
-```
-Docker container image named "xbuild" will be created.
-
-Compile and run hello app
--------------------------
-1. run build script
+1. build docker container
 
     ```
-    cd hello_app
     sh build.sh
+    ```
+Docker container image named "zxbuild" will be created.
+2. extract build script, set executable permission, put it to executable path
+
+  e.g.
+  ```
+  docker run zxbuild > zxc
+  chmod +x zxc
+  mv zxc ~/bin/
+  ```
+
+a) Compile and run hello app with gcc
+-------------------------------------
+1. run script to build docker container
+
+    ```
+    cd samples/hello_app
+    zxc arm-linux-gcc hello.c -o hello_arm_built_by_docker
     ```
 An executable file named "hello_arm_built_by_docker" will be created
 2. copy hello_arm_built_by_docker file to SD card, then insert it to Zaurus C-3100
 3. run hello_arm_built_by_docker using terminal software on Zaurus . "hello world" will be printed on terminal.
 
+b) Compile and run hello app with make
+-------------------------------------
+1. run script to build docker container
+
+    ```
+    cd samples/hello_make_app/
+    make
+    ```
+An executable file named "hello_make" will be created
+2. copy hello_make file to SD card, then insert it to Zaurus C-3100
+3. run hello_make using terminal software on Zaurus . "hello world with makefile" will be printed on terminal.
+
+Usage
+-----
+* build app with gcc (prefixed with arm-linux-)
+
+   ```
+   rpxc arm-linux-gcc GCCARGS...
+   ```
+* build app with make
+
+   ```
+   rpxc make
+   ```
+* copy kernel image built from kernel source code
+  
+  ```
+  zxc cp /root/linux/arch/arm/boot/zImage .
+  ```
+
 TODO
 ----
 * run arm app on qemu
   * qemu config
-* use make (add sample project using makefile)
 * build more app
   * use libraries installed in zaurus to link
   * CUI app

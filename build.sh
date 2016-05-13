@@ -1,2 +1,2 @@
-docker build -t xbuild .
+docker build -t zxbuild .
 

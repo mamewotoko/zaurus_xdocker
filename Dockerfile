@@ -29,6 +29,8 @@ RUN yes "" | make oldconfig
 RUN make dep; make clean
 RUN make zImage
 
-RUN mkdir /build
+WORKDIR /zxc
 WORKDIR /build
 VOLUME ["/build"]
+ENTRYPOINT ["/zxc/entrypoint.sh"]
+COPY imagefiles/entrypoint.sh imagefiles/zxc /zxc/
