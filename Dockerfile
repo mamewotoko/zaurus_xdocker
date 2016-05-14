@@ -3,7 +3,7 @@ MAINTAINER Takashi Masuyama <mamewotoko@gmail.com>
 ## C3100
 
 RUN apt-get update -q && \
-  apt-get install \
+  DEBIAN_FRONTEND=noninteractive apt-get install \
         alien \
 	wget \
 	ncurses-dev \
