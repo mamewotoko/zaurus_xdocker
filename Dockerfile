@@ -14,6 +14,7 @@ RUN apt-get update -q && \
         cmake \
         curl \
         flex \
+        qemu-user-static \
 	 -y --fix-missing
 
 #TOOD: install  runit  to use chpst (build as user)
