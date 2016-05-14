@@ -2,7 +2,22 @@ FROM 32bit/ubuntu:14.04
 MAINTAINER Takashi Masuyama <mamewotoko@gmail.com>
 ## C3100
 
-RUN apt-get update -q && apt-get install alien wget ncurses-dev binutils-arm-linux-gnueabi -y --fix-missing
+RUN apt-get update -q && \
+  apt-get install \
+        alien \
+	wget \
+	ncurses-dev \
+	binutils-arm-linux-gnueabi \
+        automake \
+        bc \
+        bison \
+        cmake \
+        curl \
+        flex \
+        lib32stdc++6 \
+        lib32z1 \
+        runit \
+	 -y --fix-missing
 
 WORKDIR /root
 RUN wget -nv http://support.ezaurus.com/developer/tool/tools/gcc-cross-sa1100-2.95.2-0.i386.rpm
