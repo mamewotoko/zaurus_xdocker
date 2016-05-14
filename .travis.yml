@@ -5,4 +5,8 @@ services:
 
 script:
   - sh build.sh
-  - cd hello_app; sh build.sh; file hello_arm_built_by_docker
+  - docker run zxbuild > zxc
+  - chmod +x zxc
+  - cd samples/hello_app; ../../zxc arm-linux-gcc hello.c -o hello_arm_built_by_docker; file hello_arm_built_by_docker
+  - cd ../..
+  - cd samples/hello_make_app; ../../zxc make; file hello_make
