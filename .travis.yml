@@ -7,6 +7,7 @@ script:
   - sh build.sh
   - docker run zxbuild > zxc
   - chmod +x zxc
-  - cd samples/hello_app; ../../zxc arm-linux-gcc hello.c -o hello_arm_built_by_docker; file hello_arm_built_by_docker
+  - cd samples/hello_app; ../../zxc arm-linux-gcc hello.c -o hello_arm_built_by_docker; ls -l hello_arm_built_by_docker
   - cd ../..
-  - cd samples/hello_make_app; ../../zxc make; file hello_make
+  - cd samples/hello_make_app; ../../zxc make; ls -l hello_make
+
