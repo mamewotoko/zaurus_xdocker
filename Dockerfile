@@ -14,8 +14,6 @@ RUN apt-get update -q && \
         cmake \
         curl \
         flex \
-        lib32stdc++6 \
-        lib32z1 \
         runit \
 	 -y --fix-missing
 
