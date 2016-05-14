@@ -14,18 +14,19 @@ fi
 # created are owned by that user. Without this they are all owned by root.
 # If we are running from boot2docker, this is not necessary.
 # The zxc script sets the BUILDER_UID and BUILDER_GID vars.
-if [[ -n $BUILDER_UID ]] && [[ -n $BUILDER_GID ]]; then
+# if [[ -n $BUILDER_UID ]] && [[ -n $BUILDER_GID ]]; then
 
-    BUILDER_USER=zxc-user
-    BUILDER_GROUP=zxc-group
+#     BUILDER_USER=zxc-user
+#     BUILDER_GROUP=zxc-group
 
-    groupadd -o -g $BUILDER_GID $BUILDER_GROUP 2> /dev/null
-    useradd -o -g $BUILDER_GID -u $BUILDER_UID $BUILDER_USER 2> /dev/null
+#     groupadd -o -g $BUILDER_GID $BUILDER_GROUP 2> /dev/null
+#     useradd -o -g $BUILDER_GID -u $BUILDER_UID $BUILDER_USER 2> /dev/null
 
-    # Run the command as the specified user/group.
-    exec chpst -u :$BUILDER_UID:$BUILDER_GID "$@"
-else
-    # Just run the command as root.
-    exec "$@"
-fi
+#     # Run the command as the specified user/group.
+#     exec chpst -u :$BUILDER_UID:$BUILDER_GID "$@"
+# else
+
+# Just run the command as root.
+exec "$@"
+#fi
 

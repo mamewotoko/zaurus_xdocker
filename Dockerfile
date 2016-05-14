@@ -14,8 +14,9 @@ RUN apt-get update -q && \
         cmake \
         curl \
         flex \
-        runit \
 	 -y --fix-missing
+
+#TOOD: install  runit  to use chpst (build as user)
 
 WORKDIR /root
 RUN wget -nv http://support.ezaurus.com/developer/tool/tools/gcc-cross-sa1100-2.95.2-0.i386.rpm
