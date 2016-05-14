@@ -51,12 +51,12 @@ Usage
 * build app with gcc (prefixed with arm-linux-)
 
    ```
-   rpxc arm-linux-gcc GCCARGS...
+   zxc arm-linux-gcc GCCARGS...
    ```
 * build app with make
 
    ```
-   rpxc make
+   zxc make
    ```
 * copy kernel image built from kernel source code
   
@@ -68,6 +68,8 @@ TODO
 ----
 * run arm app on qemu
   * qemu config
+* build as user 
+  * chpst alternative 
 * build more app
   * use libraries installed in zaurus to link
   * CUI app
@@ -76,7 +78,6 @@ TODO
       * freeze when compiling mhz.c
   * GUI app
     * curses app
-* add functions like rpxc
 
 Challenge?
 ----------
