@@ -20,6 +20,8 @@ RUN apt-get update -q && \
 #TOOD: install  runit  to use chpst (build as user)
 
 WORKDIR /root
+# sharp web page: http://support.ezaurus.com/developer/tool/tools.asp
+
 RUN wget -nv http://support.ezaurus.com/developer/tool/tools/gcc-cross-sa1100-2.95.2-0.i386.rpm
 RUN wget -nv http://support.ezaurus.com/developer/tool/tools/glibc-arm-2.2.2-0.i386.rpm
 RUN wget -nv http://support.ezaurus.com/developer/tool/tools/linux-headers-arm-sa1100-2.4.6-3.i386.rpm
