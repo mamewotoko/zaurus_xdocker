@@ -40,7 +40,7 @@ b) Compile and run hello app with make
 
     ```
     cd samples/hello_make_app/
-    make
+    zxc make
     ```
 An executable file named "hello_make" will be created
 2. copy hello_make file to SD card, then insert it to Zaurus C-3100
