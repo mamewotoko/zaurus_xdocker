@@ -49,8 +49,20 @@ command:update() {
     command:update-script
 }
 
+command:run(){
+    DOCKER_COMMAND="docker run -i -t --rm -v $PWD:/build $USER_IDS $FINAL_ARGS $FINAL_IMAGE"
+    $DOCKER_COMMAND cp -r /opt/Embedix/tools/arm-linux/lib .
+    $DOCKER_COMMAND cp /usr/bin/qemu-arm-static .
+    # TODO: chroot requires sudo...
+    $DOCKER_COMMAND chroot . ./qemu-arm-static $@
+}
+
 help:update() {
     echo Pull the latest $FINAL_IMAGE, and then update $0 from that.
+}
+
+help:run(){
+    echo run executable using qemu
 }
 
 command:help() {
@@ -73,6 +85,7 @@ Builtin commands:
     update-image
     update-script
     update
+    run
 
 For command help use: $0 help <command>
 ENDHELP
@@ -137,7 +150,8 @@ FINAL_ARGS=${ARG_ARGS-${ZXC_ARGS}}
 
 # If we are not running via boot2docker
 if [ -z $DOCKER_HOST ]; then
-    USER_IDS="-e BUILDER_UID=$( id -u ) -e BUILDER_GID=$( id -g )"
+#    USER_IDS="-u $(id -u):$(id -g)"
+    USER_IDS=""
 fi
 
 #------------------------------------------------------------------------------
