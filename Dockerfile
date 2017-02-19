@@ -1,23 +1,22 @@
-FROM 32bit/ubuntu:14.04
+FROM ioft/i386-ubuntu:14.04
+#FROM 32bit/ubuntu:14.04
 MAINTAINER Takashi Masuyama <mamewotoko@gmail.com>
 ## C3100
 
-RUN apt-get update -q && \
-  DEBIAN_FRONTEND=noninteractive apt-get install \
+#RUN apt-get update -q && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install \
         alien \
 	wget \
 	ncurses-dev \
-	binutils-arm-linux-gnueabi \
         automake \
         bc \
         bison \
         cmake \
         curl \
         flex \
-        qemu-user-static \
 	 -y --fix-missing
 
-#TOOD: install  runit  to use chpst (build as user)
+# RUN apt-get install strace -y
 
 WORKDIR /root
 # sharp web page: http://support.ezaurus.com/developer/tool/tools.asp
@@ -33,7 +32,6 @@ RUN alien glibc-arm-2.2.2-0.i386.rpm
 RUN alien linux-headers-arm-sa1100-2.4.6-3.i386.rpm
 RUN alien binutils-cross-arm-2.11.2-0.i386.rpm
 RUN dpkg -i *.deb
-# RUN apt-get install strace -y
 
 ENV PATH=/opt/Embedix/tools/bin:${PATH}
 
