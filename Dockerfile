@@ -33,6 +33,8 @@ RUN alien linux-headers-arm-sa1100-2.4.6-3.i386.rpm
 RUN alien binutils-cross-arm-2.11.2-0.i386.rpm
 RUN dpkg -i *.deb
 
+RUN apt-get install -y libc6-dev-x32
+
 ENV PATH=/opt/Embedix/tools/bin:${PATH}
 
 RUN bzcat /root/linux-c3100-20050602-rom1_01.tar.bz2 | tar x

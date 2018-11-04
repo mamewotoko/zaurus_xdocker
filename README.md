@@ -66,7 +66,7 @@ Usage
 
 TODO
 ----
-* run arm app on qemu
+* run arm app on qemu and support `zxc run`
   * qemu config
 * build as user 
   * chpst alternative 
