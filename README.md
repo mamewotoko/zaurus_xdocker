@@ -3,7 +3,7 @@ Zaurus cross-compilation in a Docker container [![Build Status](https://travis-c
 
 Target Zaurus
 -------------
-* Zaurus SL-C3100
+* [Zaurus SL-C3100](http://ezaurus.com/index_nonfla.html)
 
 Build & prepare
 ---------------------
